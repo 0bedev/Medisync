@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Medisync</string>
+    <string name="subtitle_app">Gestor de salud personal</string>
+
+    <!-- MainActivity -->
+    <string name="btn_agendar_cita">Agendar cita médica</string>
+    <string name="btn_mis_medicamentos">Mis medicamentos</string>
+    <string name="btn_mis_citas">Mis citas médicas</string>
+    <string name="btn_administrar_dosis">Administrar dosis</string>
+
+    <!-- AgendarCitaActivity -->
+    <string name="title_agendar_cita">Agendar cita médica</string>
+    <string name="hint_doctor">Nombre del doctor</string>
+    <string name="hint_especialidad">Especialidad</string>
+    <string name="hint_nota">Nota de la cita</string>
+    <string name="hint_fecha">Seleccionar fecha</string>
+    <string name="hint_hora">Seleccionar hora</string>
+    <string name="btn_guardar_cita">Guardar cita</string>
+</resources>
