@@ -33,4 +33,7 @@ class MedicamentosViewModel(
         }
     }
 
+    fun obtenerPorId(id: String): Flow<BddMedicamentos?> {
+        return repository.obtenerPorId(id)
+    }
 }

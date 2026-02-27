@@ -57,4 +57,12 @@ class CitasViewModel(
         }
     }
 
+    fun obtenerPorId(id: String) = repository.obtenerPorId(id)
+
+
+    fun obtenerCitaPorDia(inicioDia: Long, finDia: Long): Flow<BddCitas?> {
+        return repository.obtenerCitaPorDia(inicioDia, finDia)
+    }
+
+
 }

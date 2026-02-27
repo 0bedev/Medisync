@@ -24,4 +24,7 @@ interface CitasRepositoryInterface {
     /** Busca una cita específica por su identificador único */
     fun obtenerPorId(id: String): Flow<BddCitas?>
 
+    fun obtenerCitaPorDia(inicioDia: Long, finDia: Long): Flow<BddCitas?>
+
+
 }

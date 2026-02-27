@@ -9,13 +9,13 @@ data class BddCitas(
     @PrimaryKey
     val id: String,
 
+    val citaNombre: String,
+
     val doctor: String,
 
     val especialidad: String,
 
-    val fecha: String,
-
-    val hora: String,
+    val fechaHora: Long,
 
     val nota: String
 )

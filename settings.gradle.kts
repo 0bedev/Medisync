@@ -16,6 +16,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Agrega el repositorio de JitPack para obtener dependencias de librerías de terceros
+        maven { url = uri("https://jitpack.io") }
     }
 }
 

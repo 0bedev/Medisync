@@ -5,15 +5,41 @@
     <!-- MainActivity -->
     <string name="btn_agendar_cita">Agendar cita médica</string>
     <string name="btn_mis_medicamentos">Mis medicamentos</string>
+    <string name="btn_agg_medicam">Agregar medicamento</string>
     <string name="btn_mis_citas">Mis citas médicas</string>
     <string name="btn_administrar_dosis">Administrar dosis</string>
 
     <!-- AgendarCitaActivity -->
     <string name="title_agendar_cita">Agendar cita médica</string>
+    <string name="hint_cita">Nombre de la cita</string>
     <string name="hint_doctor">Nombre del doctor</string>
     <string name="hint_especialidad">Especialidad</string>
     <string name="hint_nota">Nota de la cita</string>
     <string name="hint_fecha">Seleccionar fecha</string>
     <string name="hint_hora">Seleccionar hora</string>
     <string name="btn_guardar_cita">Guardar cita</string>
+
+    <!-- MisCitasActivity -->
+    <string name="title_mis_citas">Mis citas médicas</string>
+    <string name="btn_borrar">Borrar</string>
+    <string name="btn_editar">Editar</string>
+
+    <!-- AgregarMedicamentoActivity -->
+    <string name="title_agg_medicamento">Agregar medicamento</string> -->
+    <string name="hint_medicamento">Nombre del medicamento</string>
+    <string name="hint_fecha_caducidad">Seleccionar fecha de caducidad</string>
+    <string name="hint_label_contenido">Selecciona la presentacion del medicamento:"</string>
+    <string name="hint_select_contenido_ml">Mililitros</string>
+    <string name="hint_select_contenido_gr">Gramos</string>
+    <string name="hint_contenido">Ingresa la cantidad de contenido</string>
+    <string name="btn_guardar_medicamento">Guardar medicamento</string>
+
+
+
+    <string name="hint_fecha_inicio">Seleccionar fecha de inicio del tratamiento</string>
+    <string name="hint_hora_inicio">Seleccionar hora de inicio del tratamiento</string>
+    <string name="hint_intervalo">Ingresa el intervalo del consumo de la dosis</string>
+
+
+
 </resources>

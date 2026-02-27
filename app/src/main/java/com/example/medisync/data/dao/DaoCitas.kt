@@ -22,4 +22,7 @@ interface DaoCitas {
     @Query("SELECT * FROM citas WHERE id = :id")
     fun getById(id: String): Flow<BddCitas?>
 
+    @Query("""SELECT * FROM citas WHERE fechaHora BETWEEN :inicioDia AND :finDia LIMIT 1""")
+    fun obtenerCitaPorDia(inicioDia: Long, finDia: Long): Flow<BddCitas?>
+
 }

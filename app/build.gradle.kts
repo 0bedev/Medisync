@@ -10,6 +10,7 @@ android {
         version = release(36)
     }
 
+    // Configuraciones de la aplicación
     defaultConfig {
         applicationId = "com.example.medisync"
         minSdk = 24
@@ -20,6 +21,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Habilita la optimización de código para tipo de release
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -29,6 +31,8 @@ android {
             )
         }
     }
+
+    // Configura la versión de Java para el proyecto
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -50,6 +54,11 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+
+    // Dependencias de CalendarView
+    implementation("com.github.prolificinteractive:material-calendarview:2.0.1") {
+        exclude(group = "com.android.support") // Excluye las dependencias de soporte de Android
+    }
 
     // Dependencias base del proyecto
     implementation(libs.androidx.core.ktx)

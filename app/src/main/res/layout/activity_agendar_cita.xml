@@ -13,13 +13,22 @@
         android:text="@string/title_agendar_cita"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="40dp"/>
+
+    <EditText
+        android:id="@+id/etCitaNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_cita"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etDoctor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint_doctor"
+        android:layout_marginTop="12dp"
         android:importantForAutofill="no"
         android:inputType="textPersonName" />
 

@@ -45,6 +45,16 @@ class MainActivity : AppCompatActivity() { // MainActivity hereda de AppCompatAc
         }
 
 
+        val btnAggMedicamento = findViewById<Button>(R.id.btnAggMedicamento)
+
+        btnAggMedicamento.setOnClickListener {
+            val intent = Intent(this, AgregarMedicamentoActivity::class.java)
+            startActivity(intent)
+
+        }
+
+
+
         val btnDosis = findViewById<Button>(R.id.btnAdminDosis)
 
         btnDosis.setOnClickListener {

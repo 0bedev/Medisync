@@ -9,11 +9,11 @@ data class BddMedicamentos(
     @PrimaryKey
     val id: String,
 
-    val nombre: String,
+    val nombreMedicamento: String,
 
-    val caducidad: String,
+    val fechaCaducidad: Long,
 
     val cantidad: Double,
 
-    val tipo: String,
+    val unidadMedida: String,
 )

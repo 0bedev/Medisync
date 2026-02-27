@@ -39,4 +39,8 @@ class CitasRepository(
     override fun obtenerPorId(id: String): Flow<BddCitas?> {
         return daoCitas.getById(id)
     }
+
+    override fun obtenerCitaPorDia(inicioDia: Long, finDia: Long): Flow<BddCitas?> {
+        return daoCitas.obtenerCitaPorDia(inicioDia, finDia)
+    }
 }
