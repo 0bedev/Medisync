@@ -25,21 +25,20 @@
     <string name="btn_editar">Editar</string>
 
     <!-- AgregarMedicamentoActivity -->
-    <string name="title_agg_medicamento">Agregar medicamento</string> -->
+    <string name="title_agg_medicamento">Agregar medicamento</string>
     <string name="hint_medicamento">Nombre del medicamento</string>
     <string name="hint_fecha_caducidad">Seleccionar fecha de caducidad</string>
-    <string name="hint_label_contenido">Selecciona la presentacion del medicamento:"</string>
+    <string name="hint_label_contenido">Selecciona la presentación del medicamento:</string>
     <string name="hint_select_contenido_ml">Mililitros</string>
     <string name="hint_select_contenido_gr">Gramos</string>
     <string name="hint_contenido">Ingresa la cantidad de contenido</string>
     <string name="btn_guardar_medicamento">Guardar medicamento</string>
 
-
+    <!-- MisMedicamentosActivity -->
+    <string name="title_mis_medicamentos">Mis Medicamentos</string>
+    <string name="hint_buscar_medicamento">Buscar medicamento...</string>
 
     <string name="hint_fecha_inicio">Seleccionar fecha de inicio del tratamiento</string>
     <string name="hint_hora_inicio">Seleccionar hora de inicio del tratamiento</string>
     <string name="hint_intervalo">Ingresa el intervalo del consumo de la dosis</string>
-
-
-
 </resources>
