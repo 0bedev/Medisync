@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_crear_tratamiento"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Selección de medicamento -->
+    <Spinner
+        android:id="@+id/spMedicamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:minHeight="48dp"
+        android:background="@android:drawable/btn_dropdown"/>
+
+    <!-- Tratamiento -->
+    <EditText
+        android:id="@+id/etTratamiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_tratamiento"
+        android:layout_marginTop="12dp"
+        android:inputType="textShortMessage"
+        android:importantForAutofill="no"/>
+
+    <!-- Cantidad de la dosis -->
+    <EditText
+        android:id="@+id/etDosisCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_cantidad_dosis"
+        android:layout_marginTop="12dp"
+        android:inputType="numberDecimal"
+        android:importantForAutofill="no"/>
+
+    <!-- Intervalo de horas -->
+    <EditText
+        android:id="@+id/etIntervaloHoras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_intervalo_horas"
+        android:layout_marginTop="12dp"
+        android:inputType="number"
+        android:importantForAutofill="no"/>
+
+    <!-- Fecha de inicio -->
+    <EditText
+        android:id="@+id/etFechaInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_fecha_inicio"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_marginTop="12dp"
+        android:inputType="none"
+        android:importantForAutofill="no"/>
+
+    <!-- Hora de inicio -->
+    <EditText
+        android:id="@+id/etHoraInicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_hora_inicio"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_marginTop="12dp"
+        android:inputType="none"
+        android:importantForAutofill="no"/>
+
+    <EditText
+        android:id="@+id/etDuracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_duracion"
+        android:layout_marginTop="12dp"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/btnGuardarTratamiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_guardar_tratamiento"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>

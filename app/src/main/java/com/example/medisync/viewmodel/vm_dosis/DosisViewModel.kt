@@ -33,4 +33,8 @@ class DosisViewModel(
         }
     }
 
+    fun obtenerPorId(id: String): Flow<BddDosis?> {
+        return repository.obtenerPorId(id)
+    }
+
 }

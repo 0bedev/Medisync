@@ -19,7 +19,7 @@ import com.example.medisync.data.entity.BddDosis
         BddMedicamentos::class,
         BddDosis::class
     ],
-    version = 1,
+    version = 5, // Incrementar el número de versión cuando se realicen cambios en la BBDD
     exportSchema = false
 )
 
@@ -27,33 +27,26 @@ abstract class AppDataBase : RoomDatabase() {
 
     // DAOs
     abstract fun daoCitas(): DaoCitas
-
     abstract fun daoMedicamentos(): DaoMedicamentos
-
     abstract fun daoDosis(): DaoDosis
-
 
     companion object {
 
         @Volatile
         private var INSTANCE: AppDataBase? = null
 
-
         fun getDatabase(context: Context): AppDataBase {
-
             return INSTANCE ?: synchronized(this) {
-
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDataBase::class.java,
                     "medisync_database"
-                ).build()
+                )
+                .fallbackToDestructiveMigration() // Permite recrear la BBDD si cambia el esquema
+                .build()
                 INSTANCE = instance
                 instance
             }
-
         }
-
     }
-
 }

@@ -20,6 +20,8 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import java.util.Calendar
 import java.util.Locale
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class AgregarMedicamentoActivity : AppCompatActivity() {
     // Variables globales para control de fecha y calendario
@@ -39,6 +41,37 @@ class AgregarMedicamentoActivity : AppCompatActivity() {
         val etContenido = findViewById<EditText>(R.id.etContenido)
         val rgUnidadMedida = findViewById<RadioGroup>(R.id.rgUnidadMedida)
         val btnGuardar = findViewById<Button>(R.id.btnGuardarMedicamento)
+
+        // Capturar datos del Intent para modo edición
+        val nombreExtra = intent.getStringExtra("nombre")
+        val fechaCaducidadExtra = intent.getLongExtra("fechaCaducidad", -1L)
+        val cantidadExtra = intent.getDoubleExtra("cantidad", -1.0)
+        val unidadExtra = intent.getStringExtra("unidad")
+
+        // Si hay datos previos, rellenar los campos (Modo Edición)
+        if (nombreExtra != null) {
+            etNombreMedicamento.setText(nombreExtra)
+            etNombreMedicamento.isEnabled = false // Evitar cambiar el ID/Nombre en edición si se desea consistencia
+            
+            if (fechaCaducidadExtra != -1L) {
+                calendario.timeInMillis = fechaCaducidadExtra
+                fechaSeleccionada = true
+                val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                etFechaCaducidad.setText(sdf.format(Date(fechaCaducidadExtra)))
+            }
+            
+            if (cantidadExtra != -1.0) {
+                etContenido.setText(cantidadExtra.toString())
+            }
+            
+            if (unidadExtra != null) {
+                if (unidadExtra == getString(R.string.hint_select_contenido_ml)) {
+                    findViewById<RadioButton>(R.id.rbMililitros).isChecked = true
+                } else if (unidadExtra == getString(R.string.hint_select_contenido_gr)) {
+                    findViewById<RadioButton>(R.id.rbGramos).isChecked = true
+                }
+            }
+        }
 
         // Configuración del diálogo para seleccionar la fecha de caducidad
         etFechaCaducidad.setOnClickListener {
@@ -94,32 +127,37 @@ class AgregarMedicamentoActivity : AppCompatActivity() {
             // Operación asíncrona en la base de datos usando Corrutinas
             lifecycleScope.launch {
                 try {
-                    // Verificamos si el medicamento ya existe por su nombre (ID)
-                    val medicamentoExist = viewModel.obtenerPorId(nombreMedicamento).firstOrNull()
-
-                    if (medicamentoExist != null) {
-                        // Si existe, pedimos confirmación para sobrescribir
-                        AlertDialog.Builder(this@AgregarMedicamentoActivity)
-                            .setTitle("Medicamento existente")
-                            .setMessage("Ya existe un medicamento con este nombre. ¿Desea actualizarlo?")
-                            .setPositiveButton("Sí") { _, _ ->
-                                viewModel.insertar(medicamento)
-                                Toast.makeText(this@AgregarMedicamentoActivity, "Actualizado", Toast.LENGTH_SHORT).show()
-                                finish() // Cerramos la pantalla al terminar
-                            }
-                            .setNegativeButton("No", null)
-                            .show()
+                    // Si estamos en modo creación (nombreExtra es nulo), verificamos duplicados
+                    if (nombreExtra == null) {
+                        val medicamentoExist = viewModel.obtenerPorId(nombreMedicamento).firstOrNull()
+                        if (medicamentoExist != null) {
+                            AlertDialog.Builder(this@AgregarMedicamentoActivity)
+                                .setTitle("Medicamento existente")
+                                .setMessage("Ya existe un medicamento con este nombre. ¿Desea actualizarlo?")
+                                .setPositiveButton("Sí") { _, _ ->
+                                    guardarMedicamento(viewModel, medicamento)
+                                }
+                                .setNegativeButton("No", null)
+                                .show()
+                        } else {
+                            guardarMedicamento(viewModel, medicamento)
+                        }
                     } else {
-                        // Si no existe, lo guardamos directamente
-                        viewModel.insertar(medicamento)
-                        Toast.makeText(this@AgregarMedicamentoActivity, "Guardado", Toast.LENGTH_SHORT).show()
-                        finish()
+                        // En modo edición, guardamos directamente
+                        guardarMedicamento(viewModel, medicamento)
                     }
                 } catch (e: Exception) {
-                    // Manejo de errores inesperados
                     Toast.makeText(this@AgregarMedicamentoActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
                 }
             }
+        }
+    }
+
+    private fun guardarMedicamento(viewModel: MedicamentosViewModel, medicamento: BddMedicamentos) {
+        lifecycleScope.launch {
+            viewModel.insertar(medicamento)
+            Toast.makeText(this@AgregarMedicamentoActivity, "Guardado exitosamente", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 }

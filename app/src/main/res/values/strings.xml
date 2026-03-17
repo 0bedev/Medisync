@@ -8,6 +8,7 @@
     <string name="btn_agg_medicam">Agregar medicamento</string>
     <string name="btn_mis_citas">Mis citas médicas</string>
     <string name="btn_administrar_dosis">Administrar dosis</string>
+    <string name="btn_crear_tratamiento">Crear Tratamiento</string>
 
     <!-- AgendarCitaActivity -->
     <string name="title_agendar_cita">Agendar cita médica</string>
@@ -38,7 +39,16 @@
     <string name="title_mis_medicamentos">Mis Medicamentos</string>
     <string name="hint_buscar_medicamento">Buscar medicamento...</string>
 
-    <string name="hint_fecha_inicio">Seleccionar fecha de inicio del tratamiento</string>
-    <string name="hint_hora_inicio">Seleccionar hora de inicio del tratamiento</string>
+    <!-- CrearTratamientoActivity -->
+    <string name="title_crear_tratamiento">Crear Tratamiento</string>
+    <string name="hint_seleccionar_medicamento">Seleccionar Medicamento</string>
+    <string name="hint_tratamiento">Tratamiento</string>
+    <string name="hint_cantidad_dosis">Cantidad por dosis</string>
+    <string name="hint_intervalo_horas">Intervalo (horas)</string>
+    <string name="hint_fecha_inicio">Fecha de inicio</string>
+    <string name="hint_hora_inicio">Hora de inicio</string>
+    <string name="hint_duracion">Duración tratamiento (días)</string>
+    <string name="btn_guardar_tratamiento">Guardar Tratamiento</string>
+
     <string name="hint_intervalo">Ingresa el intervalo del consumo de la dosis</string>
 </resources>

@@ -1,10 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdministrarDosisActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTitleAdministrarDosis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_administrar_dosis"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Search -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchViewDosis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Buscar tratamiento"
+        android:iconifiedByDefault="false"
+        android:layout_marginBottom="15dp"/>
+
+
+    <!-- Lista -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDosis"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="15dp"/>
+
+    <!-- Botones -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnPausarDosis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pausar"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnEditarDosis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_editar"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnEliminarDosis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_borrar"
+            android:textColor="@android:color/holo_red_dark"/>
+    </LinearLayout>
+</LinearLayout>
